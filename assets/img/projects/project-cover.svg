@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1026"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="150" r="220" fill="#818cf8" opacity="0.12"/>
+  <circle cx="200" cy="500" r="180" fill="#2dd4bf" opacity="0.1"/>
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="none" stroke="url(#g1)" stroke-width="2" opacity="0.4"/>
+  <g fill="none" stroke="#e5e7eb" stroke-width="2" opacity="0.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M540 295l-60 30 60 30 60-30-60-30Z"/>
+    <path d="M480 325v40l60 30 60-30v-40"/>
+    <path d="M600 325v40"/>
+  </g>
+  <text x="600" y="420" fill="#e5e7eb" font-family="Inter, Arial, sans-serif" font-size="28" text-anchor="middle" opacity="0.8">Project Cover</text>
+  <text x="600" y="460" fill="#9ca3af" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle">Mockup + Slot Screenshot</text>
+</svg>
