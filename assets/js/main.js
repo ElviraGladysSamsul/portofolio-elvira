@@ -264,7 +264,7 @@
         "Antarmuka yang terstruktur untuk analisis hasil"
       ],
       tags: ["OpenAI API", "GPT-4o mini", "Chain-of-Thought", "Levenshtein Distance", "Evaluasi AI", "Web App"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/evalgpt/evalgpt-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -283,7 +283,7 @@
         "Rekapitulasi dan pelaporan kebutuhan material"
       ],
       tags: ["Laravel", "MySQL", "ERD", "Black-box Testing", "Administrasi", "Material Tracking"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/material/material-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -302,7 +302,7 @@
         "Koordinasi dan pelacakan hasil temuan"
       ],
       tags: ["Functional Testing", "Black-box Testing", "Test Scenario", "Bug Reporting", "Retesting"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/e-laper-dinas/e-laper-dinas-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -321,7 +321,7 @@
         "Perancangan pengalaman pengguna untuk aplikasi mobile"
       ],
       tags: ["Figma", "Mobile Design", "User Flow", "Prototyping", "UI/UX"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/na-laundry/na-laundry-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -340,7 +340,7 @@
         "Sistem CRUD untuk pengelolaan data"
       ],
       tags: ["Web Development", "CRUD", "Status Tracking", "Reporting", "PHP/HTML/CSS"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/bekom/bekom-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -359,7 +359,7 @@
         "Antarmuka pelanggan yang ringkas dan mudah digunakan"
       ],
       tags: ["Web Development", "Catalog", "Order Status", "Real-time", "PHP/HTML/CSS"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/decafe/decafe-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -378,7 +378,7 @@
         "Menjaga integritas referensial data"
       ],
       tags: ["MySQL", "Normalisasi", "Relasi Tabel", "SQL", "Database Design"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/akademik/akademik-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     },
@@ -397,7 +397,7 @@
         "Sistem pelacakan ketersediaan stok"
       ],
       tags: ["Microsoft Access", "Relasi Tabel", "Form", "Laporan Stok", "Database Design"],
-      image: "./assets/img/projects/project-cover.svg",
+      image: "./assets/img/projects/inventory/inventory-0.png",
       gallery: [],
       github: "https://github.com/ElviraGladysSamsul"
     }
@@ -768,3 +768,116 @@
     yearElement.textContent = String(new Date().getFullYear());
   }
 })();
+
+const certModal = document.getElementById("certModal");
+
+if (certModal) {
+  const certTitle = document.getElementById("certModalTitle");
+  const certMeta = document.getElementById("certModalMeta");
+  const certBody = document.getElementById("certModalBody");
+  const certDescription = document.getElementById("certModalDescription");
+  const certFocusTitle = document.getElementById("certModalFocusTitle");
+  const certFocus = document.getElementById("certModalFocus");
+  const certLink = document.getElementById("certModalLink");
+  const certClose = document.getElementById("certModalClose");
+
+  document.querySelectorAll(".cert-card__open").forEach((button) => {
+    button.addEventListener("click", () => {
+      const title = button.dataset.certTitle || "Sertifikat";
+      const meta = button.dataset.certMeta || "";
+      const src = button.dataset.certSrc || "";
+      const description =
+        button.dataset.certDescription ||
+        "Informasi kegiatan belum tersedia.";
+      const focusItems = (button.dataset.certFocus || "")
+        .split(";")
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      // Isi judul dan informasi sertifikat
+      certTitle.textContent = title;
+      certMeta.textContent = meta;
+      certDescription.textContent = description;
+
+      // Tampilkan gambar sertifikat
+      certBody.replaceChildren();
+
+      if (src) {
+        const image = document.createElement("img");
+        image.className = "cert-modal__image";
+        image.src = src;
+        image.alt = `Gambar sertifikat ${title}`;
+        image.loading = "eager";
+        certBody.appendChild(image);
+
+        certLink.href = src;
+        certLink.hidden = false;
+      } else {
+        certBody.textContent = "Gambar sertifikat belum tersedia.";
+        certLink.hidden = true;
+      }
+
+      // Tampilkan fokus pembelajaran atau pencapaian
+      certFocus.replaceChildren();
+
+      focusItems.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        certFocus.appendChild(li);
+      });
+
+      certFocusTitle.textContent = focusItems.length
+        ? "Fokus Pembelajaran / Pencapaian"
+        : "Informasi Tambahan";
+
+      // Buka modal
+      if (!certModal.open) {
+        certModal.showModal();
+      }
+    });
+  });
+
+  // Tutup melalui tombol X
+  certClose?.addEventListener("click", () => {
+    certModal.close();
+  });
+
+  // Tutup saat pengguna mengklik area backdrop
+  certModal.addEventListener("click", (event) => {
+    if (event.target === certModal) {
+      certModal.close();
+    }
+  });
+  
+}
+
+
+document.querySelectorAll(".project-gallery").forEach((gallery) => {
+  const mainImage = gallery.querySelector(".project-gallery__preview");
+  const counter = gallery.querySelector(".project-gallery__counter");
+  const thumbnails = gallery.querySelectorAll(".project-gallery__thumb");
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const imagePath = thumb.dataset.image;
+      const imageIndex = thumb.dataset.index;
+
+      if (!imagePath || !mainImage) return;
+
+      mainImage.src = imagePath;
+      mainImage.alt = `Screenshot EvalGPT ${imageIndex}`;
+
+      if (counter) {
+        counter.textContent = `${imageIndex} / ${thumbnails.length}`;
+      }
+
+      thumbnails.forEach((item) => {
+        item.classList.remove("is-active");
+        item.removeAttribute("aria-current");
+      });
+
+      thumb.classList.add("is-active");
+      thumb.setAttribute("aria-current", "true");
+    });
+  });
+});
