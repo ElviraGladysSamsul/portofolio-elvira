@@ -3528,3 +3528,53 @@ main,
   position: relative;
   z-index: 1;
 }
+
+
+#skills .skills-layout {
+  display: block;
+}
+
+#skills .skill-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+#skills .skill-panel,
+#skills .side-card {
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#skills .skill-panel__icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+#skills .skill-panel--wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  #skills .skill-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #skills .skill-panel--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  #skills .skill-panels {
+    grid-template-columns: 1fr;
+  }
+
+  #skills .skill-panel--wide {
+    grid-column: span 1;
+  }
+}
