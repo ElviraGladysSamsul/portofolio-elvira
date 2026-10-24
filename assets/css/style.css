@@ -3529,25 +3529,34 @@ main,
   z-index: 1;
 }
 
-
+/* Layout utama bagian keahlian */
 #skills .skills-layout {
   display: block;
+  width: 100%;
+  max-width: none;
 }
 
+/* Grid seluruh kartu keahlian */
 #skills .skill-panels {
   display: grid;
+  width: 100%;
+  max-width: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;
 }
 
+/* Ukuran kartu */
 #skills .skill-panel,
 #skills .side-card {
+  width: 100%;
   min-width: 0;
+  max-width: none;
   height: 100%;
   box-sizing: border-box;
 }
 
+/* Ukuran ikon */
 #skills .skill-panel__icon svg {
   display: block;
   width: 24px;
@@ -3555,10 +3564,12 @@ main,
   flex-shrink: 0;
 }
 
+/* Administrasi & Operasional menggunakan 2 kolom */
 #skills .skill-panel--wide {
   grid-column: span 2;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
   #skills .skill-panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3569,63 +3580,13 @@ main,
   }
 }
 
+/* HP */
 @media (max-width: 600px) {
   #skills .skill-panels {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   #skills .skill-panel--wide {
     grid-column: span 1;
-  }
-}
-
-
-/* FIX LAYOUT KEAHLIAN DI HOSTING */
-#skills .skills-layout {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-}
-
-#skills .skill-panels {
-  display: grid !important;
-  width: 100% !important;
-  max-width: none !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 20px !important;
-  align-items: stretch;
-}
-
-#skills .skill-panel,
-#skills .side-card {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  box-sizing: border-box;
-}
-
-#skills .skill-panel--wide {
-  grid-column: span 2 !important;
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-  #skills .skill-panels {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  #skills .skill-panel--wide {
-    grid-column: span 2 !important;
-  }
-}
-
-/* HP */
-@media (max-width: 600px) {
-  #skills .skill-panels {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  #skills .skill-panel--wide {
-    grid-column: span 1 !important;
   }
 }
