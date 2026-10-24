@@ -3578,3 +3578,54 @@ main,
     grid-column: span 1;
   }
 }
+
+
+/* FIX LAYOUT KEAHLIAN DI HOSTING */
+#skills .skills-layout {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#skills .skill-panels {
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch;
+}
+
+#skills .skill-panel,
+#skills .side-card {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+#skills .skill-panel--wide {
+  grid-column: span 2 !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  #skills .skill-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #skills .skill-panel--wide {
+    grid-column: span 2 !important;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  #skills .skill-panels {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #skills .skill-panel--wide {
+    grid-column: span 1 !important;
+  }
+}
